@@ -10,7 +10,7 @@ const Layout: FC = ({children}) => {
         <Link to="/" ><button>Main</button></Link>
       </li>
       <li>
-        <Link to="/mypage" ><button>MyPAge</button></Link>
+        <Link to="/mypage" ><button>MyPage</button></Link>
       </li>
       <li>
         <Link to="/market" ><button>Market</button></Link>

@@ -1,7 +1,7 @@
 import { AbiItem } from "web3-utils";
 import Web3 from 'web3';
 
-const NFTAbi: AbiItem[] =[
+const NFTAbi: AbiItem[] = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -166,6 +166,37 @@ const NFTAbi: AbiItem[] =[
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "_TokenOwner",
+				"type": "address"
+			}
+		],
+		"name": "getTokens",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "TokenNum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "tokenInfo",
+						"type": "string"
+					}
+				],
+				"internalType": "struct NFT.TokenData[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "owner",
 				"type": "address"
 			},
@@ -270,6 +301,19 @@ const NFTAbi: AbiItem[] =[
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "saleToken",
+		"outputs": [
+			{
+				"internalType": "contract SaleToken",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -283,6 +327,19 @@ const NFTAbi: AbiItem[] =[
 			}
 		],
 		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_saleToken",
+				"type": "address"
+			}
+		],
+		"name": "setSaleToken",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -323,6 +380,49 @@ const NFTAbi: AbiItem[] =[
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenByIndex",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenOfOwnerByIndex",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "tokenId",
 				"type": "uint256"
 			}
@@ -333,6 +433,19 @@ const NFTAbi: AbiItem[] =[
 				"internalType": "string",
 				"name": "",
 				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -361,14 +474,147 @@ const NFTAbi: AbiItem[] =[
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-];
+]
 
-const NFTAdress = "0x1a07bfC4A6cd83C19591354EA29426BaD326A9D4";
+const saleNFTAbi: AbiItem[] = [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_mintTokenAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "getOnSaleTokenArrayLength",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getTokenPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mintTokenAddress",
+		"outputs": [
+			{
+				"internalType": "contract NFT",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "onSaleTokenArray",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "purchaseToken",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "setForSaleToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenPrices",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
 
+const NFTAddress = "0xC61359759E6b0C88480C1a947fd22086dB85Cc8D" as const;
+export const saleNFTAddress = "0x1554d63284B7F34e1718208CdCA1b1695406832D";
 export const web3 = new Web3(window.ethereum);
 
 
 export const NFTContract = new web3.eth.Contract(
   NFTAbi,
-  NFTAdress
+  NFTAddress
+)
+
+export const saleNFTContract = new web3.eth.Contract(
+	saleNFTAbi,
+	saleNFTAddress
 )

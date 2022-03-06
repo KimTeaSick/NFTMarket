@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useCallback } from "react";
+import React, { FC, useState, useEffect, useCallback, ChangeEvent } from "react";
 import { create, Options } from 'ipfs-http-client';
 import { NFTContract } from '../Constracts/index'
 
@@ -18,7 +18,7 @@ const Main: FC<MainProps> = ({ account }) => {
   const [value, setValue] = useState('');
   const [jsonUrl, setJsonUrl] = useState('');
 
-  const describeHandler = useCallback((e) => {
+  const describeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setDescribe(e.target.value)
   }, [name]);
   const typeHandler = useCallback((e) => {
@@ -62,18 +62,16 @@ const Main: FC<MainProps> = ({ account }) => {
   const NFTMint = async() =>{
     if(!account) return;
     const response = await NFTContract.methods
-    .create(account, jsonUrl)
-    .send({from: account});
+      .create(account, jsonUrl)
+      .send({from: account});
 
     if(response.status){
       const balanceOf = await NFTContract.methods.balanceOf(account).call();
 
-      const tokenURI = await NFTContract.methods
-      .tokenURI(balanceOf)
-      .call();
+      const getTokens = await NFTContract.methods.getTokens(account).call()
 
       console.log('balanceOf : ',balanceOf);
-      console.log('tokenURI :',tokenURI);
+      console.log('getTokens :',getTokens);
     }
     console.log(jsonUrl);
     console.log(response);
@@ -81,7 +79,6 @@ const Main: FC<MainProps> = ({ account }) => {
 
   const show=()=>{
     console.log(jsonUrl);
-    
   }
 
   return (

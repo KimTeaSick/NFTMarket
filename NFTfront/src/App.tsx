@@ -33,7 +33,7 @@ const App: FC = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Main account={account} />} />
-          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage" element={<Mypage account={account} />} />
           <Route path="/market" element={<Market />} />
         </Routes>
       </Layout>
