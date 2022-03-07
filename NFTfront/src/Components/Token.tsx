@@ -1,13 +1,19 @@
 import React, {FC} from "react";
 
 interface TokenProps {
-  v: any;
+  tokenNum: any;
 }
 
-const Token: FC <TokenProps> = ({v}) =>{
+const Token: FC <TokenProps> = ({ tokenNum }) =>{
+  
   return (
-    <div>
-      {v}
+    <div style={{width:'200px',height:'250px', borderRadius:'15px'}}>
+      <div style={{height:'200px',background:'#eee'}}>
+      {tokenNum}  
+      </div>
+      <div style={{width:'inhebit', height:'50px'}}>
+
+      </div>
     </div>
   )
 }

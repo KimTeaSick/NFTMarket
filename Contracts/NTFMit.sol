@@ -9,6 +9,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "saleNFT.sol";
 
 contract NFT is ERC721Enumerable {
+
     SaleToken public saleToken;
 
     using Counters for Counters.Counter;
@@ -19,8 +20,9 @@ contract NFT is ERC721Enumerable {
     mapping(uint256 => string) tokenURIs;
 
     struct TokenData {
-        uint256 TokenNum;
+        uint256 tokenNum;
         string tokenInfo;
+        //uint256 tokenPrice;
     }
 
     function tokenURI(uint256 tokenId)
@@ -59,10 +61,11 @@ contract NFT is ERC721Enumerable {
         TokenData[] memory tokenData = new TokenData[](balanceLength);
 
         for (uint256 i = 0; i < balanceLength; i++) {
-            uint256 TokenNum = tokenOfOwnerByIndex(_TokenOwner, i);
-            string memory tokenInfo = tokenURI(TokenNum);
+            uint256 tokenNum = tokenOfOwnerByIndex(_TokenOwner, i);
+            string memory tokenInfo = tokenURI(tokenNum);
+            //uint256 tokenPrice = saleToken.getTokenPrice(tokenNum);
 
-            tokenData[i] = TokenData(TokenNum, tokenInfo);
+            tokenData[i] = TokenData(tokenNum, tokenInfo);
         }
         return tokenData;
     }

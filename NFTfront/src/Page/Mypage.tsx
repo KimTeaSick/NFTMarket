@@ -13,14 +13,9 @@ const Mypage: FC<MyPAgeProps> = ({ account }) => {
   const getTokens = async () => {
     try {
       const balanceLenght = await NFTContract.methods.balanceOf(account).call();
-      //console.log(balanceLenght);
       const getToken = await NFTContract.methods.getTokens(account).call();
       setMyTokens(getToken)
-      //console.log(getToken);
-      // for ( let i = 0; i <= parseInt(balanceLenght) - 1; i++){
-      //   myTokens.push(getToken[i]);
-      // }
-      // console.log(myTokens);
+
     } catch (e) {
       console.log(e);
     }
@@ -72,12 +67,13 @@ const Mypage: FC<MyPAgeProps> = ({ account }) => {
 
   return (
     <div>
-
+      <p>{saleStatus}</p>
       <button onClick={show}>show</button>
       {
         myTokens && myTokens.map((v: any, i) => (
-          <Token v = {v} />
-        ))
+          <Token tokenNum = {v.tokenNum} /> 
+        )
+        )
       }
 
       <button

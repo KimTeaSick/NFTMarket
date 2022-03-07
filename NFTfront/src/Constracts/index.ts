@@ -176,7 +176,7 @@ const NFTAbi: AbiItem[] = [
 				"components": [
 					{
 						"internalType": "uint256",
-						"name": "TokenNum",
+						"name": "tokenNum",
 						"type": "uint256"
 					},
 					{
@@ -490,6 +490,19 @@ const saleNFTAbi: AbiItem[] = [
 	},
 	{
 		"inputs": [],
+		"name": "NFTAddress",
+		"outputs": [
+			{
+				"internalType": "contract NFT",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "getOnSaleTokenArrayLength",
 		"outputs": [
 			{
@@ -505,7 +518,7 @@ const saleNFTAbi: AbiItem[] = [
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_tokenId",
+				"name": "_tokenNum",
 				"type": "uint256"
 			}
 		],
@@ -515,19 +528,6 @@ const saleNFTAbi: AbiItem[] = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "mintTokenAddress",
-		"outputs": [
-			{
-				"internalType": "contract NFT",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -556,7 +556,7 @@ const saleNFTAbi: AbiItem[] = [
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_tokenId",
+				"name": "_tokenNum",
 				"type": "uint256"
 			}
 		],
@@ -569,7 +569,7 @@ const saleNFTAbi: AbiItem[] = [
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_tokenId",
+				"name": "_tokenNum",
 				"type": "uint256"
 			},
 			{
@@ -604,8 +604,8 @@ const saleNFTAbi: AbiItem[] = [
 	}
 ]
 
-const NFTAddress = "0xC61359759E6b0C88480C1a947fd22086dB85Cc8D" as const;
-export const saleNFTAddress = "0x1554d63284B7F34e1718208CdCA1b1695406832D";
+const NFTAddress = "0x2798De07c8f040c3CDD30097f7977d345055fBb2" as const;
+export const saleNFTAddress = "0xb44385F4C2870bf850c29Ad594Dd5cABB495c199";
 export const web3 = new Web3(window.ethereum);
 
 

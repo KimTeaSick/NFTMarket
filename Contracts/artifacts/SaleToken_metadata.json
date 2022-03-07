@@ -18,6 +18,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "NFTAddress",
+				"outputs": [
+					{
+						"internalType": "contract NFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getOnSaleTokenArrayLength",
 				"outputs": [
 					{
@@ -33,7 +46,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tokenId",
+						"name": "_tokenNum",
 						"type": "uint256"
 					}
 				],
@@ -43,19 +56,6 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "mintTokenAddress",
-				"outputs": [
-					{
-						"internalType": "contract NFT",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -84,7 +84,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tokenId",
+						"name": "_tokenNum",
 						"type": "uint256"
 					}
 				],
@@ -97,7 +97,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tokenId",
+						"name": "_tokenNum",
 						"type": "uint256"
 					},
 					{
@@ -255,19 +255,19 @@
 			]
 		},
 		"NTFMit.sol": {
-			"keccak256": "0x0f913b868399d5767d259f58d5b306f94e9f502a954bd3b56c7a733bb2ca7761",
+			"keccak256": "0x949e60092f402bf03df1f2896210512ec617517f41948b2b23fcdc90602f3fa0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://c48c7e7f90a9086e17cf18032661b3069020fc083f40622625edfc8dcb631253",
-				"dweb:/ipfs/QmecxgDhu6XsemNHuqBCi1Dfwv3bTE6UhcWMwWWkTVDdJn"
+				"bzz-raw://a79490a2e7cc552abd04815f641f0a2f87e1a9ad1599b32f986873eced3c223b",
+				"dweb:/ipfs/QmcQi6KocddqxcKBB9Aopww9mTuWfdbaLNBH2U5TDhU2WP"
 			]
 		},
 		"saleNFT.sol": {
-			"keccak256": "0xfacfaebe653615736eca26090bb690467b742a6c7d010644ced905a067815779",
+			"keccak256": "0x9833cceb59dca1b14fb11a5f90a3002998022419c6ed17615e89d601d28a8730",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://33edf91f5a932b513a0a8681eb9d9d918d4ef5a1baa8a862998a4cc55102577d",
-				"dweb:/ipfs/QmPKZMcspjB1BkVitwDYZh67nnPAqz7GcP9xhERtXYxo3m"
+				"bzz-raw://937928f9fcc40e7b52ab870f200faa898ddba2e9ad2bc71dab697a68d7ca355f",
+				"dweb:/ipfs/QmWULvEKMH18VLUvA5MTUSHkFfSqjgCzwDprPgRPvLpqZH"
 			]
 		}
 	},
